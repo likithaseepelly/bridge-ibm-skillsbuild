@@ -1,0 +1,59 @@
+{
+  "generated_with_seed": 20261105,
+  "events": {
+    "P001": {
+      "trajectory": "deteriorating",
+      "first_signal_day": 11,
+      "becomes_urgent": false,
+      "urgent_day": null
+    },
+    "P003": {
+      "trajectory": "deteriorating",
+      "first_signal_day": 9,
+      "becomes_urgent": false,
+      "urgent_day": null
+    },
+    "P024": {
+      "trajectory": "deteriorating",
+      "first_signal_day": 9,
+      "becomes_urgent": false,
+      "urgent_day": null
+    },
+    "P025": {
+      "trajectory": "deteriorating",
+      "first_signal_day": 5,
+      "becomes_urgent": true,
+      "urgent_day": 8
+    },
+    "P033": {
+      "trajectory": "deteriorating",
+      "first_signal_day": 3,
+      "becomes_urgent": false,
+      "urgent_day": null
+    },
+    "P036": {
+      "trajectory": "deteriorating",
+      "first_signal_day": 6,
+      "becomes_urgent": false,
+      "urgent_day": null
+    },
+    "P038": {
+      "trajectory": "deteriorating",
+      "first_signal_day": 9,
+      "becomes_urgent": false,
+      "urgent_day": null
+    },
+    "P042": {
+      "trajectory": "deteriorating",
+      "first_signal_day": 5,
+      "becomes_urgent": false,
+      "urgent_day": null
+    },
+    "P057": {
+      "trajectory": "deteriorating",
+      "first_signal_day": 11,
+      "becomes_urgent": false,
+      "urgent_day": null
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cohort_size": 60,
+  "seeded_events": 9,
+  "days_simulated": 30,
+  "detection_rate": 0.889,
+  "detected": 8,
+  "missed": [
+    "P003"
+  ],
+  "median_cycles_to_detection": 1.0,
+  "max_cycles_to_detection": 4,
+  "top_five_slots": 144,
+  "seeded_slots": 56,
+  "other_adverse_slots": 85,
+  "unexplained_slots": 3,
+  "noise_slots": 88,
+  "noise_rate": 0.611,
+  "unexplained_rate": 0.021,
+  "deferred_urgent_replies": 0,
+  "deferred_detail": [],
+  "ranked_entries_checked": 1111,
+  "entries_without_reason": 0,
+  "entries_without_evidence": 0,
+  "injected_failures_surfaced": 2,
+  "total_cases_opened": 95
+}

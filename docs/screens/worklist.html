@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bridge worklist</title><style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#161616;--muted:#5a6872;--line:#d6e0ef;
+--blue:#0f62fe;--deep:#002d9c;--red:#da1e28;--redbg:#fff1f1;--amber:#8e6a03;
+--amberbg:#fff8e1;--green:#0e6027;--greenbg:#defbe6;--purple:#6929c4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+header{background:var(--deep);color:#fff;padding:18px 24px}
+header h1{margin:0;font-size:19px;letter-spacing:.2px}
+header p{margin:4px 0 0;opacity:.8;font-size:13px}
+.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.pill{background:#fff;border:1px solid var(--line);border-radius:999px;
+padding:5px 13px;font-size:12.5px;color:var(--muted)}
+.pill b{color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+padding:16px 18px;margin-bottom:12px}
+.row{display:flex;gap:14px;align-items:flex-start}
+.rank{width:30px;height:30px;flex:none;border-radius:50%;background:var(--blue);
+color:#fff;display:flex;align-items:center;justify-content:center;
+font-weight:700;font-size:14px}
+.rank.urgent{background:var(--red)}
+.name{font-weight:650;font-size:16px}
+.meta{color:var(--muted);font-size:12.5px;margin-top:2px}
+.reason{margin-top:7px}
+.tags{margin-top:9px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11.5px;padding:3px 9px;border-radius:5px;background:#eef3fb;
+color:var(--deep);border:1px solid var(--line)}
+.tag.red{background:var(--redbg);color:var(--red);border-color:#ffb3b8}
+.tag.green{background:var(--greenbg);color:var(--green);border-color:#a7f0ba}
+.tag.amber{background:var(--amberbg);color:var(--amber);border-color:#f1c21b}
+a.btn,button{font:inherit;font-size:13px;padding:7px 14px;border-radius:6px;
+border:1px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer;
+text-decoration:none;display:inline-block}
+a.btn.ghost,button.ghost{background:#fff;color:var(--blue)}
+h2{font-size:15px;margin:22px 0 10px;color:var(--deep);
+text-transform:uppercase;letter-spacing:.6px}
+.banner{border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:14px}
+.banner.red{background:var(--redbg);border:1px solid #ffb3b8;color:#750e13}
+.banner.amber{background:var(--amberbg);border:1px solid #f1c21b;color:#6a4c02}
+.banner.grey{background:#eef3fb;border:1px solid var(--line);color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+td,th{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);
+vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase}
+.trail{font-size:13.5px}
+.trail .ev{padding:9px 0;border-bottom:1px dashed var(--line)}
+.trail .ev:last-child{border-bottom:none}
+.who{font-size:11.5px;color:var(--muted);text-transform:uppercase;
+letter-spacing:.5px}
+form.inline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+input[type=text]{font:inherit;padding:7px 10px;border:1px solid var(--line);
+border-radius:6px;min-width:220px;flex:1}
+.foot{color:var(--muted);font-size:12px;margin-top:26px;line-height:1.6}
+@media(max-width:640px){.wrap{padding:14px 10px 50px}}
+</style></head><body>
+<header><h1>Bridge, post-discharge worklist</h1>
+<p>FDU AI Experiential Learning Lab team &nbsp;&middot;&nbsp; IBM SkillsBuild AI Experiential Learning Lab</p></header>
+<div class="wrap"><div class="bar"><span class="pill">Cycle day <b>12</b></span><span class="pill">Cohort <b>60</b></span><span class="pill">Open cases <b>50</b></span><span class="pill">Awaiting approval <b>0</b></span><a class="btn ghost" href="/audit">Audit log</a><a class="btn ghost" href="/approvals">Approvals</a></div><div class="banner red"><b>1 urgent case open.</b> Emergency guidance has been shown to the sender and these are at the top of the list.</div><h2>Call these first</h2><div class="card"><div class="row"><div class="rank">1</div><div style="flex:1"><div class="name">Wendell Jarvis</div><div class="meta">85 plus &middot; day 12 after discharge &middot; last reply today</div><div class="reason">Reported an emergency sign, I have chest pain and it is not going away; new prescriptions collected overdue.</div><div class="tags"><span class="tag amber">plan step failed</span><span class="tag">confidence 0.95</span><span class="tag">heart failure</span><span class="tag amber">high acuity</span><span class="tag red">new prescriptions collected overdue</span></div><form class="inline" method="post" action="/action"><input type="hidden" name="patient_id" value="P025"><input type="hidden" name="day" value="12"><input type="text" name="note" placeholder="What did you do?"><button name="action" value="called">Record call</button><a class="btn ghost" href="/patient?id=P025">Evidence</a></form></div></div></div><div class="card"><div class="row"><div class="rank">2</div><div style="flex:1"><div class="name">Nadia Iyengar</div><div class="meta">55 to 64 &middot; day 12 after discharge &middot; last reply today</div><div class="reason">Said Phlegm has gone green and there is more of it; worse than their own previous reply.</div><div class="tags"><span class="tag">confidence 0.65</span><span class="tag">copd</span><span class="tag amber">high acuity</span></div><form class="inline" method="post" action="/action"><input type="hidden" name="patient_id" value="P057"><input type="hidden" name="day" value="12"><input type="text" name="note" placeholder="What did you do?"><button name="action" value="called">Record call</button><a class="btn ghost" href="/patient?id=P057">Evidence</a></form></div></div></div><div class="card"><div class="row"><div class="rank">3</div><div style="flex:1"><div class="name">Clifford Kowalski</div><div class="meta">85 plus &middot; day 12 after discharge &middot; last reply 4 days ago</div><div class="reason">No reply for 4 days; new prescriptions collected overdue.</div><div class="tags"><span class="tag amber">plan step failed</span><span class="tag">confidence 0.70</span><span class="tag">heart failure</span><span class="tag amber">high acuity</span><span class="tag red">new prescriptions collected overdue</span><span class="tag red">follow up appointment booked overdue</span><span class="tag red">follow up appointment attended overdue</span></div><form class="inline" method="post" action="/action"><input type="hidden" name="patient_id" value="P054"><input type="hidden" name="day" value="12"><input type="text" name="note" placeholder="What did you do?"><button name="action" value="called">Record call</button><a class="btn ghost" href="/patient?id=P054">Evidence</a></form></div></div></div><div class="card"><div class="row"><div class="rank">4</div><div style="flex:1"><div class="name">Stefan Novotny</div><div class="meta">55 to 64 &middot; day 12 after discharge &middot; last reply 2 days ago</div><div class="reason">Said Scale is up four pounds since Monday and the shoes are tight; worse than their own previous reply.</div><div class="tags"><span class="tag amber">persistent ambiguity</span><span class="tag">confidence 0.65</span><span class="tag">heart failure</span><span class="tag amber">high acuity</span></div><form class="inline" method="post" action="/action"><input type="hidden" name="patient_id" value="P038"><input type="hidden" name="day" value="12"><input type="text" name="note" placeholder="What did you do?"><button name="action" value="called">Record call</button><a class="btn ghost" href="/patient?id=P038">Evidence</a></form></div></div></div><div class="card"><div class="row"><div class="rank">5</div><div style="flex:1"><div class="name">Yvette Mbeki</div><div class="meta">75 to 84 &middot; day 12 after discharge &middot; last reply today</div><div class="reason">Sent a reply that could not be interpreted; worse than their own previous reply.</div><div class="tags"><span class="tag amber">extended silence</span><span class="tag">confidence 0.25</span><span class="tag">heart failure</span><span class="tag amber">high acuity</span></div><form class="inline" method="post" action="/action"><input type="hidden" name="patient_id" value="P006"><input type="hidden" name="day" value="12"><input type="text" name="note" placeholder="What did you do?"><button name="action" value="called">Record call</button><a class="btn ghost" href="/patient?id=P006">Evidence</a></form></div></div></div><h2>Below the line (31 more ranked)</h2><div class="card"><table><tr><th>#</th><th>Patient</th><th>Reason</th><th>Conf</th></tr><tr><td>6</td><td><a href="/patient?id=P009">Ana Haddad</a></td><td>Sent a reply that could not be interpreted; worse than their own previous reply.</td><td>0.25</td></tr><tr><td>7</td><td><a href="/patient?id=P021">Osman Mbeki</a></td><td>Sent a reply that could not be interpreted; worse than their own previous reply.</td><td>0.25</td></tr><tr><td>8</td><td><a href="/patient?id=P039">Otto Pembroke</a></td><td>Sent a reply that could not be interpreted; worse than their own previous reply.</td><td>0.25</td></tr><tr><td>9</td><td><a href="/patient?id=P007">Valeria Ananthan</a></td><td>Sent a reply that could not be interpreted; worse than their own previous reply.</td><td>0.25</td></tr><tr><td>10</td><td><a href="/patient?id=P036">Leonard Castellanos</a></td><td>Said Been shivery and the cough is different now.</td><td>0.80</td></tr><tr><td>11</td><td><a href="/patient?id=P042">Wendell Eriksen</a></td><td>Said Short of breath just getting to the bathroom now. Worse than yesterday.</td><td>0.80</td></tr><tr><td>12</td><td><a href="/patient?id=P015">Priya Whitlock</a></td><td>No reply for 12 days; follow up appointment booked overdue.</td><td>0.60</td></tr><tr><td>13</td><td><a href="/patient?id=P059">Tamsin Hollins</a></td><td>No reply for 12 days; follow up appointment booked overdue.</td><td>0.60</td></tr><tr><td>14</td><td><a href="/patient?id=P011">Marisol Fontaine</a></td><td>Follow up appointment booked overdue.</td><td>0.70</td></tr><tr><td>15</td><td><a href="/patient?id=P029">Georgia Haddad</a></td><td>No reply for 6 days; follow up appointment booked overdue.</td><td>0.70</td></tr><tr><td>16</td><td><a href="/patient?id=P024">Zelda Iyengar</a></td><td>Said Short of breath just getting to the bathroom now. Worse than yesterday.</td><td>0.80</td></tr><tr><td>17</td><td><a href="/patient?id=P033">Wendell Kowalski</a></td><td>Said Short of breath just getting to the bathroom now. Worse than yesterday.</td><td>0.80</td></tr></table></div><p class="foot">Bridge ranks and raises. It does not diagnose, it does not give clinical advice, and it never decides that a patient is safe. Synthetic data only.</p></div></body></html>
