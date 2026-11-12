@@ -22,28 +22,54 @@ ADVICE_PATTERNS = [
     r"\bno need to\b", r"\bdiagnos", r"\bprescrib",
 ]
 
+# Patient-directed templates — written to sound like a person, not a system.
 TEMPLATES = {
     "prescription_collected":
-        "Hello {first}, checking in after your hospital stay. "
-        "Have you been able to pick up your new medicines yet?",
+        "Hi {first}, just checking in after your stay. "
+        "Have you managed to pick up your new medicines yet?",
     "appointment_booked":
-        "Hello {first}, quick check in. "
-        "Has your follow up appointment been booked yet?",
+        "Hi {first}, hope you are doing okay. "
+        "Has your follow-up appointment been booked yet?",
     "appointment_attended":
-        "Hello {first}, checking in. "
-        "Were you able to get to your follow up appointment?",
+        "Hi {first}, thinking of you. "
+        "Were you able to get to your follow-up appointment?",
     "symptom_general":
-        "Hello {first}, checking in. "
+        "Hi {first}, just wanted to check in. "
         "Compared with yesterday, is your breathing better, the same, or worse?",
     "symptom_hf":
-        "Hello {first}, checking in. "
-        "Has there been any new swelling in your ankles or feet since yesterday?",
+        "Hi {first}, just a quick check. "
+        "Have you noticed any new swelling in your ankles or feet since yesterday?",
     "symptom_copd":
-        "Hello {first}, checking in. "
-        "Are you using your reliever inhaler more than usual today?",
+        "Hi {first}, checking in on you. "
+        "Have you needed your reliever inhaler more than usual today?",
     "clarify":
-        "Thanks {first}. So I pass the right note to your nurse, "
+        "Thanks {first}. Just so I can pass the right note to your nurse, "
         "is anything worse today than it was yesterday?",
+}
+
+# Caregiver-directed variants — addressed to the person caring for the patient.
+CAREGIVER_TEMPLATES = {
+    "prescription_collected":
+        "Hi, this is a check-in for {first}'s care team. "
+        "Has {first} been able to pick up their new medicines yet?",
+    "appointment_booked":
+        "Hi, hope things are going okay for {first}. "
+        "Has the follow-up appointment been booked yet?",
+    "appointment_attended":
+        "Hi, just checking in about {first}. "
+        "Were they able to get to the follow-up appointment?",
+    "symptom_general":
+        "Hi, checking in about {first} today. "
+        "Compared with yesterday, is their breathing better, the same, or worse?",
+    "symptom_hf":
+        "Hi, just a quick check on {first}. "
+        "Have you noticed any new swelling in their ankles or feet since yesterday?",
+    "symptom_copd":
+        "Hi, checking in on {first}. "
+        "Have they needed their reliever inhaler more than usual today?",
+    "clarify":
+        "Thanks for getting back to us. Just so I can pass the right note to the nurse, "
+        "is anything worse for {first} today than it was yesterday?",
 }
 
 
@@ -74,17 +100,20 @@ def compose(record: Dict[str, Any], plan: Dict[str, Any], day: int,
             needs_clarification: bool = False) -> Dict[str, Any]:
     step = choose_step(plan, day, needs_clarification)
     first = record["name"].split()[0]
-    text = TEMPLATES[step].format(first=first)
+    use_caregiver = bool(record.get("caregiver_contact"))
+    bank = CAREGIVER_TEMPLATES if use_caregiver else TEMPLATES
+    text = bank[step].format(first=first)
     problems = _violations(text)
     if problems:
         # Never send something that breaks a rule. Fall back to the safest ask.
-        text = TEMPLATES["symptom_general"].format(first=first)
+        text = bank["symptom_general"].format(first=first)
         problems = _violations(text)
     return {
         "patient_id": record["patient_id"],
         "day": day,
         "text": text,
         "probing_step": step,
+        "caregiver_variant": use_caregiver,
         "timing_reason": _timing_reason(step, plan, day),
         "status": "hold_for_approval" if config.APPROVAL_MODE else "ready",
         "rule_violations": problems,

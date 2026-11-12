@@ -17,13 +17,27 @@ URGENT_TERMS = [
     "blue", "grey lips", "unresponsive", "drowsy", "fainted", "passed out",
     "cannot breathe", "can not breathe", "cant breathe", "gasping",
     "coughing blood", "collapsed",
+    # misspelling variants — patients and caregivers often mis-type these
+    "cant breath", "can not breath", "cannot breath",
+    "cant breethe", "can not breethe", "cannot breethe",
+    "confuzed", "confussed", "confised",
+    "not making any sense", "not making sence", "not making any sence",
 ]
 RISING_TERMS = [
     "more short of breath", "short of breath", "shortness of breath",
     "worse", "puffy", "swelling", "swollen", "sleep sitting up",
+    "slept sitting up",                      # past-tense variant
     "could not lie flat", "cannot lie flat", "weight is up", "scale is up",
     "pounds since", "green", "more of it", "shivery", "fever", "chills",
     "using the blue inhaler more", "more than usual", "tight",
+    # Type 2 diabetes warning wording — from knowledge file and synth decline pool
+    "blood sugar", "high blood sugar", "blood sugar readings",
+    "very high", "persistently high",
+    "more thirsty than usual", "much more thirsty",
+    "passing more urine", "going to the toilet a lot",
+    "feeling sick", "feeling sick and", "nausea",
+    "wound", "foot sore", "sore is", "not healing",
+    "blurred vision", "gone blurred", "vision that is new or",
 ]
 REASSURING_TERMS = [
     "all good", "no problems", "about the same", "feeling fine", "doing ok",
@@ -32,6 +46,9 @@ REASSURING_TERMS = [
 AMBIGUOUS_WHOLE = {"ok", "okay", "k", "same", "fine", "yes", "no", "maybe",
                    "not sure", "not sure really", "cant say", "can not say",
                    "same i suppose", "dunno", "i suppose"}
+# Hedging phrases that signal an uncertain reply when no clinical signal is present.
+HEDGE_TERMS = ["i think", "i guess", "i suppose", "not really sure",
+               "seems like", "maybe a bit", "hard to say"]
 
 STEP_DONE_TERMS = {
     "prescription_collected": ["picked up", "collected", "got the tablets",
@@ -62,9 +79,14 @@ def interpret(reply_text: str, plan: Dict[str, Any],
     rising_hits = _matched(RISING_TERMS, text)
     calm_hits = _matched(REASSURING_TERMS, text)
 
+    hedge_hits = _matched(HEDGE_TERMS, text)
+
     ambiguity = False
-    if text in AMBIGUOUS_WHOLE or (len(words) <= 4 and not urgent_hits
-                                   and not rising_hits and not calm_hits):
+    if text in AMBIGUOUS_WHOLE or (
+            len(words) <= 5
+            and not urgent_hits and not rising_hits and not calm_hits):
+        ambiguity = True
+    elif hedge_hits and not urgent_hits and not rising_hits and not calm_hits:
         ambiguity = True
 
     if urgent_hits:

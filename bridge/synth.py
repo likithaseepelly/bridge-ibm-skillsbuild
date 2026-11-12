@@ -40,6 +40,13 @@ COPD_MEDS = [
     ("Albuterol inhaler", "as needed for breathlessness"),
     ("Doxycycline 100 mg", "twice a day for seven days"),
 ]
+T2D_MEDS = [
+    ("Metformin 500 mg", "twice a day with meals"),
+    ("Empagliflozin 10 mg", "once each morning"),
+    ("Insulin glargine 10 units", "once at bedtime"),
+    ("Gliclazide 40 mg", "once each morning with breakfast"),
+    ("Sitagliptin 100 mg", "once each morning"),
+]
 
 # Reply text by trajectory. Written as a patient or relative would text.
 STABLE_REPLIES = [
@@ -67,6 +74,12 @@ COPD_DECLINE = [
     "Phlegm has gone green and there is more of it.",
     "More out of breath getting dressed than I was last week.",
     "Been shivery and the cough is different now.",
+]
+T2D_DECLINE = [
+    "Blood sugar readings have been very high the last two days.",
+    "Feeling much more thirsty than usual and going to the toilet a lot.",
+    "Foot is red and swollen where the sore is, does not look right.",
+    "Feeling sick and stomach hurts, sugar was very high this morning.",
 ]
 URGENT_REPLIES = [
     "He is confused this morning and not making sense, I am worried.",
@@ -106,7 +119,12 @@ def generate_cohort(size: int = None, seeded: int = None,
                 used_names.add(name)
                 break
         condition = rng.choice(config.CONDITIONS)
-        meds_pool = HF_MEDS if condition == "heart_failure" else COPD_MEDS
+        if condition == "heart_failure":
+            meds_pool = HF_MEDS
+        elif condition == "copd":
+            meds_pool = COPD_MEDS
+        else:
+            meds_pool = T2D_MEDS
         meds = rng.sample(meds_pool, rng.randint(3, min(5, len(meds_pool))))
         discharge_offset = rng.randint(0, 3)
         pid = "P%03d" % (i + 1)
@@ -171,7 +189,12 @@ def simulated_reply(patient: Dict[str, Any], day: int,
     if sim["trajectory"] == "deteriorating" and day >= (sim["onset_day"] or 99):
         if sim["urgent"] and day >= sim["onset_day"] + 3:
             return {"author": "caregiver", "text": rng.choice(URGENT_REPLIES)}
-        pool = HF_DECLINE if patient["condition"] == "heart_failure" else COPD_DECLINE
+        if patient["condition"] == "heart_failure":
+            pool = HF_DECLINE
+        elif patient["condition"] == "copd":
+            pool = COPD_DECLINE
+        else:
+            pool = T2D_DECLINE
         step = min(day - sim["onset_day"], len(pool) - 1)
         return {"author": author, "text": pool[step]}
 

@@ -80,7 +80,8 @@ class Index:
 
     def warning_signs(self, condition: str) -> List[Dict[str, str]]:
         """Every warning sign carries the id of the passage it came from."""
-        doc = {"heart_failure": "heart_failure", "copd": "copd"}[condition]
+        doc = {"heart_failure": "heart_failure", "copd": "copd",
+               "type2_diabetes": "type2_diabetes"}[condition]
         return [p for p in self.passages
                 if p["doc"].startswith(doc)
                 and "Warning signs" in p["section"]]

@@ -106,27 +106,27 @@
   {
     "patient_id": "P004",
     "name": "Joachim Jarvis",
-    "condition": "copd",
+    "condition": "type2_diabetes",
     "discharge_date": "2026-11-04",
     "age_band": "85 plus",
     "lives_alone": false,
     "caregiver_contact": true,
     "medications": [
       {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
       },
       {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
       },
       {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
       },
       {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
       }
     ],
     "followup_day": 12,
@@ -142,20 +142,52 @@
   {
     "patient_id": "P005",
     "name": "Rhoda Iyengar",
-    "condition": "copd",
-    "discharge_date": "2026-11-03",
-    "age_band": "75 to 84",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-01",
+    "age_band": "65 to 74",
     "lives_alone": false,
-    "caregiver_contact": false,
+    "caregiver_contact": true,
     "medications": [
       {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
       },
       {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
       },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      }
+    ],
+    "followup_day": 12,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 2,
+      "books_appointment_day": null,
+      "reply_rate": 0.8
+    }
+  },
+  {
+    "patient_id": "P006",
+    "name": "Boris Novotny",
+    "condition": "copd",
+    "discharge_date": "2026-11-02",
+    "age_band": "75 to 84",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
       {
         "name": "Azithromycin 250 mg",
         "schedule": "once a day for five days"
@@ -165,40 +197,16 @@
         "schedule": "once a day for five days"
       },
       {
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      },
+      {
+        "name": "Doxycycline 100 mg",
+        "schedule": "twice a day for seven days"
+      },
+      {
         "name": "Tiotropium inhaler",
         "schedule": "one puff each morning"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": 5,
-      "reply_rate": 0.82
-    }
-  },
-  {
-    "patient_id": "P006",
-    "name": "Yvette Mbeki",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "75 to 84",
-    "lives_alone": true,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
       }
     ],
     "followup_day": 14,
@@ -250,967 +258,51 @@
   {
     "patient_id": "P008",
     "name": "Quentin Mbeki",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-04",
-    "age_band": "75 to 84",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "silent",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": null,
-      "reply_rate": 0.77
-    }
-  },
-  {
-    "patient_id": "P009",
-    "name": "Ana Haddad",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "75 to 84",
-    "lives_alone": true,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": 2,
-      "reply_rate": 0.62
-    }
-  },
-  {
-    "patient_id": "P010",
-    "name": "Terrence Lindqvist",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
-    "age_band": "85 plus",
-    "lives_alone": true,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 2,
-      "books_appointment_day": 8,
-      "reply_rate": 0.82
-    }
-  },
-  {
-    "patient_id": "P011",
-    "name": "Marisol Fontaine",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "55 to 64",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 2,
-      "books_appointment_day": null,
-      "reply_rate": 0.85
-    }
-  },
-  {
-    "patient_id": "P012",
-    "name": "Tamsin Gallagher",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "65 to 74",
-    "lives_alone": false,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      }
-    ],
-    "followup_day": 7,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 5,
-      "reply_rate": 0.74
-    }
-  },
-  {
-    "patient_id": "P013",
-    "name": "Zelda Kowalski",
-    "condition": "copd",
-    "discharge_date": "2026-11-02",
-    "age_band": "55 to 64",
-    "lives_alone": false,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      },
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      }
-    ],
-    "followup_day": 7,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 2,
-      "books_appointment_day": 3,
-      "reply_rate": 0.63
-    }
-  },
-  {
-    "patient_id": "P014",
-    "name": "Paloma Haddad",
-    "condition": "copd",
+    "condition": "type2_diabetes",
     "discharge_date": "2026-11-04",
     "age_band": "85 plus",
-    "lives_alone": true,
+    "lives_alone": false,
     "caregiver_contact": true,
     "medications": [
       {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": 7,
-      "reply_rate": 0.59
-    }
-  },
-  {
-    "patient_id": "P015",
-    "name": "Priya Whitlock",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
-    "age_band": "85 plus",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Spironolactone 25 mg",
+        "name": "Empagliflozin 10 mg",
         "schedule": "once each morning"
       },
       {
-        "name": "Lisinopril 10 mg",
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      },
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
         "schedule": "once each morning"
       },
       {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
       }
     ],
     "followup_day": 10,
     "_sim": {
       "trajectory": "silent",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 2,
-      "books_appointment_day": null,
-      "reply_rate": 0.65
-    }
-  },
-  {
-    "patient_id": "P016",
-    "name": "Mei Eriksen",
-    "condition": "copd",
-    "discharge_date": "2026-11-04",
-    "age_band": "65 to 74",
-    "lives_alone": false,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      }
-    ],
-    "followup_day": 7,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": 9,
-      "reply_rate": 0.81
-    }
-  },
-  {
-    "patient_id": "P017",
-    "name": "Osman Lindqvist",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
-    "age_band": "85 plus",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": 7,
-      "reply_rate": 0.87
-    }
-  },
-  {
-    "patient_id": "P018",
-    "name": "Stefan Delgado",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-04",
-    "age_band": "85 plus",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 2,
-      "books_appointment_day": 3,
-      "reply_rate": 0.57
-    }
-  },
-  {
-    "patient_id": "P019",
-    "name": "Otto Brennan",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
-    "age_band": "85 plus",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": null,
-      "reply_rate": 0.8
-    }
-  },
-  {
-    "patient_id": "P020",
-    "name": "Hassan Kowalski",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "85 plus",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 4,
-      "books_appointment_day": 7,
-      "reply_rate": 0.62
-    }
-  },
-  {
-    "patient_id": "P021",
-    "name": "Osman Mbeki",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
-    "age_band": "85 plus",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 4,
-      "books_appointment_day": 2,
-      "reply_rate": 0.68
-    }
-  },
-  {
-    "patient_id": "P022",
-    "name": "Mei Dufresne",
-    "condition": "copd",
-    "discharge_date": "2026-11-04",
-    "age_band": "75 to 84",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": null,
-      "reply_rate": 0.9
-    }
-  },
-  {
-    "patient_id": "P023",
-    "name": "Stefan Oyelaran",
-    "condition": "copd",
-    "discharge_date": "2026-11-01",
-    "age_band": "65 to 74",
-    "lives_alone": false,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": 7,
-      "reply_rate": 0.78
-    }
-  },
-  {
-    "patient_id": "P024",
-    "name": "Zelda Iyengar",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-03",
-    "age_band": "75 to 84",
-    "lives_alone": true,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 7,
-    "_sim": {
-      "trajectory": "deteriorating",
-      "onset_day": 9,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 7,
-      "reply_rate": 0.92
-    }
-  },
-  {
-    "patient_id": "P025",
-    "name": "Wendell Jarvis",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "85 plus",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "deteriorating",
-      "onset_day": 5,
-      "urgent": true,
-      "collects_prescription_day": null,
-      "books_appointment_day": 7,
-      "reply_rate": 0.77
-    }
-  },
-  {
-    "patient_id": "P026",
-    "name": "Osman Nakamura",
-    "condition": "copd",
-    "discharge_date": "2026-11-02",
-    "age_band": "65 to 74",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 8,
-      "reply_rate": 0.82
-    }
-  },
-  {
-    "patient_id": "P027",
-    "name": "Mei Ferreira",
-    "condition": "copd",
-    "discharge_date": "2026-11-01",
-    "age_band": "55 to 64",
-    "lives_alone": true,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": 9,
-      "reply_rate": 0.78
-    }
-  },
-  {
-    "patient_id": "P028",
-    "name": "Georgia Castellanos",
-    "condition": "copd",
-    "discharge_date": "2026-11-02",
-    "age_band": "65 to 74",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": 9,
-      "reply_rate": 0.74
-    }
-  },
-  {
-    "patient_id": "P029",
-    "name": "Georgia Haddad",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
-    "age_band": "85 plus",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": null,
-      "reply_rate": 0.58
-    }
-  },
-  {
-    "patient_id": "P030",
-    "name": "Rosa Jarvis",
-    "condition": "copd",
-    "discharge_date": "2026-11-03",
-    "age_band": "85 plus",
-    "lives_alone": false,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      },
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 7,
-      "reply_rate": 0.56
-    }
-  },
-  {
-    "patient_id": "P031",
-    "name": "Ivy Gallagher",
-    "condition": "copd",
-    "discharge_date": "2026-11-01",
-    "age_band": "65 to 74",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 2,
-      "books_appointment_day": 5,
-      "reply_rate": 0.91
-    }
-  },
-  {
-    "patient_id": "P032",
-    "name": "Priya Fontaine",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-04",
-    "age_band": "75 to 84",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
       "collects_prescription_day": 3,
       "books_appointment_day": 6,
-      "reply_rate": 0.6
+      "reply_rate": 0.62
     }
   },
   {
-    "patient_id": "P033",
-    "name": "Wendell Kowalski",
+    "patient_id": "P009",
+    "name": "Zelda Haddad",
     "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "65 to 74",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "deteriorating",
-      "onset_day": 3,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 7,
-      "reply_rate": 0.75
-    }
-  },
-  {
-    "patient_id": "P034",
-    "name": "Ana Kirkpatrick",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-03",
-    "age_band": "65 to 74",
+    "discharge_date": "2026-11-04",
+    "age_band": "55 to 64",
     "lives_alone": true,
-    "caregiver_contact": true,
+    "caregiver_contact": false,
     "medications": [
       {
         "name": "Lisinopril 10 mg",
@@ -1221,8 +313,108 @@
         "schedule": "once a day"
       },
       {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      }
+    ],
+    "followup_day": 12,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": null,
+      "books_appointment_day": 4,
+      "reply_rate": 0.74
+    }
+  },
+  {
+    "patient_id": "P010",
+    "name": "Nadia Novotny",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-01",
+    "age_band": "55 to 64",
+    "lives_alone": false,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      }
+    ],
+    "followup_day": 14,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 4,
+      "books_appointment_day": null,
+      "reply_rate": 0.68
+    }
+  },
+  {
+    "patient_id": "P011",
+    "name": "Marcus Pembroke",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-04",
+    "age_band": "65 to 74",
+    "lives_alone": false,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
         "name": "Spironolactone 25 mg",
         "schedule": "once each morning"
+      },
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 7,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 1,
+      "books_appointment_day": 8,
+      "reply_rate": 0.77
+    }
+  },
+  {
+    "patient_id": "P012",
+    "name": "Marcus Kowalski",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-03",
+    "age_band": "75 to 84",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
       },
       {
         "name": "Furosemide 40 mg",
@@ -1231,30 +423,34 @@
       {
         "name": "Carvedilol 6.25 mg",
         "schedule": "twice a day with food"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
       }
     ],
-    "followup_day": 14,
+    "followup_day": 10,
     "_sim": {
       "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": 7,
-      "reply_rate": 0.66
+      "collects_prescription_day": 2,
+      "books_appointment_day": 3,
+      "reply_rate": 0.83
     }
   },
   {
-    "patient_id": "P035",
-    "name": "Georgia Dufresne",
+    "patient_id": "P013",
+    "name": "Georgia Hollins",
     "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "55 to 64",
+    "discharge_date": "2026-11-03",
+    "age_band": "65 to 74",
     "lives_alone": false,
     "caregiver_contact": true,
     "medications": [
       {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
       },
       {
         "name": "Lisinopril 10 mg",
@@ -1274,19 +470,59 @@
       "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": 4,
-      "reply_rate": 0.57
+      "collects_prescription_day": 3,
+      "books_appointment_day": 2,
+      "reply_rate": 0.85
     }
   },
   {
-    "patient_id": "P036",
-    "name": "Leonard Castellanos",
-    "condition": "copd",
-    "discharge_date": "2026-11-03",
-    "age_band": "55 to 64",
+    "patient_id": "P014",
+    "name": "Ana Castellanos",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-04",
+    "age_band": "85 plus",
     "lives_alone": true,
     "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 2,
+      "books_appointment_day": 4,
+      "reply_rate": 0.94
+    }
+  },
+  {
+    "patient_id": "P015",
+    "name": "Nadia Lindqvist",
+    "condition": "copd",
+    "discharge_date": "2026-11-02",
+    "age_band": "85 plus",
+    "lives_alone": false,
+    "caregiver_contact": false,
     "medications": [
       {
         "name": "Albuterol inhaler",
@@ -1299,33 +535,457 @@
       {
         "name": "Prednisone 40 mg",
         "schedule": "once a day for five days"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "silent",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 1,
+      "books_appointment_day": 9,
+      "reply_rate": 0.87
+    }
+  },
+  {
+    "patient_id": "P016",
+    "name": "Ana Okafor",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-01",
+    "age_band": "85 plus",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
       },
       {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 4,
+      "books_appointment_day": null,
+      "reply_rate": 0.61
+    }
+  },
+  {
+    "patient_id": "P017",
+    "name": "Nadia Okafor",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-02",
+    "age_band": "55 to 64",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": null,
+      "books_appointment_day": 8,
+      "reply_rate": 0.74
+    }
+  },
+  {
+    "patient_id": "P018",
+    "name": "Rhoda Nakamura",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-02",
+    "age_band": "85 plus",
+    "lives_alone": true,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
+      {
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      },
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 7,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 4,
+      "books_appointment_day": 2,
+      "reply_rate": 0.86
+    }
+  },
+  {
+    "patient_id": "P019",
+    "name": "Paloma Ferreira",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-04",
+    "age_band": "75 to 84",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      }
+    ],
+    "followup_day": 7,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": null,
+      "books_appointment_day": 9,
+      "reply_rate": 0.91
+    }
+  },
+  {
+    "patient_id": "P020",
+    "name": "Ingrid Gallagher",
+    "condition": "copd",
+    "discharge_date": "2026-11-03",
+    "age_band": "65 to 74",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Azithromycin 250 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Prednisone 40 mg",
+        "schedule": "once a day for five days"
       },
       {
         "name": "Doxycycline 100 mg",
         "schedule": "twice a day for seven days"
+      },
+      {
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 2,
+      "books_appointment_day": 5,
+      "reply_rate": 0.61
+    }
+  },
+  {
+    "patient_id": "P021",
+    "name": "Rhoda Kowalski",
+    "condition": "copd",
+    "discharge_date": "2026-11-02",
+    "age_band": "65 to 74",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      },
+      {
+        "name": "Doxycycline 100 mg",
+        "schedule": "twice a day for seven days"
+      },
+      {
+        "name": "Azithromycin 250 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Tiotropium inhaler",
+        "schedule": "one puff each morning"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 1,
+      "books_appointment_day": null,
+      "reply_rate": 0.57
+    }
+  },
+  {
+    "patient_id": "P022",
+    "name": "Linus Hollins",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-01",
+    "age_band": "75 to 84",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
       }
     ],
     "followup_day": 14,
     "_sim": {
-      "trajectory": "deteriorating",
-      "onset_day": 6,
+      "trajectory": "stable",
+      "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 4,
-      "reply_rate": 0.65
+      "collects_prescription_day": null,
+      "books_appointment_day": 7,
+      "reply_rate": 0.91
     }
   },
   {
-    "patient_id": "P037",
-    "name": "Rhoda Kirkpatrick",
+    "patient_id": "P023",
+    "name": "Hassan Novotny",
+    "condition": "copd",
+    "discharge_date": "2026-11-01",
+    "age_band": "85 plus",
+    "lives_alone": false,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Doxycycline 100 mg",
+        "schedule": "twice a day for seven days"
+      },
+      {
+        "name": "Azithromycin 250 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": null,
+      "books_appointment_day": null,
+      "reply_rate": 0.88
+    }
+  },
+  {
+    "patient_id": "P024",
+    "name": "Delphine Fontaine",
+    "condition": "copd",
+    "discharge_date": "2026-11-02",
+    "age_band": "65 to 74",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      },
+      {
+        "name": "Prednisone 40 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Azithromycin 250 mg",
+        "schedule": "once a day for five days"
+      }
+    ],
+    "followup_day": 12,
+    "_sim": {
+      "trajectory": "deteriorating",
+      "onset_day": 8,
+      "urgent": false,
+      "collects_prescription_day": 4,
+      "books_appointment_day": 6,
+      "reply_rate": 0.67
+    }
+  },
+  {
+    "patient_id": "P025",
+    "name": "Mei Haddad",
     "condition": "heart_failure",
+    "discharge_date": "2026-11-02",
+    "age_band": "85 plus",
+    "lives_alone": false,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      },
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 12,
+    "_sim": {
+      "trajectory": "deteriorating",
+      "onset_day": 9,
+      "urgent": true,
+      "collects_prescription_day": 4,
+      "books_appointment_day": 5,
+      "reply_rate": 0.56
+    }
+  },
+  {
+    "patient_id": "P026",
+    "name": "Zelda Castellanos",
+    "condition": "type2_diabetes",
     "discharge_date": "2026-11-04",
+    "age_band": "65 to 74",
+    "lives_alone": true,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      },
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
+      {
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 1,
+      "books_appointment_day": 7,
+      "reply_rate": 0.84
+    }
+  },
+  {
+    "patient_id": "P027",
+    "name": "Rhoda Novotny",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-03",
     "age_band": "75 to 84",
     "lives_alone": true,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 1,
+      "books_appointment_day": null,
+      "reply_rate": 0.74
+    }
+  },
+  {
+    "patient_id": "P028",
+    "name": "Clifford Ferreira",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-03",
+    "age_band": "75 to 84",
+    "lives_alone": false,
     "caregiver_contact": true,
     "medications": [
       {
@@ -1333,8 +993,348 @@
         "schedule": "once each morning"
       },
       {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      },
+      {
         "name": "Carvedilol 6.25 mg",
         "schedule": "twice a day with food"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": null,
+      "books_appointment_day": null,
+      "reply_rate": 0.61
+    }
+  },
+  {
+    "patient_id": "P029",
+    "name": "Priya Okafor",
+    "condition": "copd",
+    "discharge_date": "2026-11-04",
+    "age_band": "85 plus",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      },
+      {
+        "name": "Azithromycin 250 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Doxycycline 100 mg",
+        "schedule": "twice a day for seven days"
+      },
+      {
+        "name": "Tiotropium inhaler",
+        "schedule": "one puff each morning"
+      },
+      {
+        "name": "Prednisone 40 mg",
+        "schedule": "once a day for five days"
+      }
+    ],
+    "followup_day": 7,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 2,
+      "books_appointment_day": 2,
+      "reply_rate": 0.74
+    }
+  },
+  {
+    "patient_id": "P030",
+    "name": "Georgia Haddad",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-04",
+    "age_band": "55 to 64",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 12,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 2,
+      "books_appointment_day": 5,
+      "reply_rate": 0.84
+    }
+  },
+  {
+    "patient_id": "P031",
+    "name": "Georgia Oyelaran",
+    "condition": "copd",
+    "discharge_date": "2026-11-03",
+    "age_band": "55 to 64",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Tiotropium inhaler",
+        "schedule": "one puff each morning"
+      },
+      {
+        "name": "Doxycycline 100 mg",
+        "schedule": "twice a day for seven days"
+      },
+      {
+        "name": "Prednisone 40 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Azithromycin 250 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      }
+    ],
+    "followup_day": 14,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 4,
+      "books_appointment_day": 3,
+      "reply_rate": 0.92
+    }
+  },
+  {
+    "patient_id": "P032",
+    "name": "Darnell Nakamura",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-02",
+    "age_band": "65 to 74",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      },
+      {
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 14,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 1,
+      "books_appointment_day": 2,
+      "reply_rate": 0.57
+    }
+  },
+  {
+    "patient_id": "P033",
+    "name": "Marisol Fontaine",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-01",
+    "age_band": "75 to 84",
+    "lives_alone": true,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      },
+      {
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      },
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "deteriorating",
+      "onset_day": 8,
+      "urgent": false,
+      "collects_prescription_day": 4,
+      "books_appointment_day": null,
+      "reply_rate": 0.82
+    }
+  },
+  {
+    "patient_id": "P034",
+    "name": "Darnell Ferreira",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-03",
+    "age_band": "85 plus",
+    "lives_alone": true,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 7,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 2,
+      "books_appointment_day": 5,
+      "reply_rate": 0.95
+    }
+  },
+  {
+    "patient_id": "P035",
+    "name": "Leonard Kowalski",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-02",
+    "age_band": "65 to 74",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      },
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 12,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 3,
+      "books_appointment_day": 8,
+      "reply_rate": 0.87
+    }
+  },
+  {
+    "patient_id": "P036",
+    "name": "Yusuf Kowalski",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-04",
+    "age_band": "65 to 74",
+    "lives_alone": true,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      },
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "deteriorating",
+      "onset_day": 4,
+      "urgent": false,
+      "collects_prescription_day": null,
+      "books_appointment_day": 3,
+      "reply_rate": 0.69
+    }
+  },
+  {
+    "patient_id": "P037",
+    "name": "Otto Kowalski",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-01",
+    "age_band": "65 to 74",
+    "lives_alone": false,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
       },
       {
         "name": "Furosemide 40 mg",
@@ -1346,19 +1346,51 @@
       "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
+      "collects_prescription_day": null,
+      "books_appointment_day": 4,
+      "reply_rate": 0.65
+    }
+  },
+  {
+    "patient_id": "P038",
+    "name": "Rhoda Kirkpatrick",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-01",
+    "age_band": "75 to 84",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 14,
+    "_sim": {
+      "trajectory": "deteriorating",
+      "onset_day": 9,
+      "urgent": false,
       "collects_prescription_day": 1,
       "books_appointment_day": 8,
       "reply_rate": 0.63
     }
   },
   {
-    "patient_id": "P038",
+    "patient_id": "P039",
     "name": "Stefan Novotny",
     "condition": "heart_failure",
     "discharge_date": "2026-11-01",
-    "age_band": "55 to 64",
+    "age_band": "85 plus",
     "lives_alone": false,
-    "caregiver_contact": false,
+    "caregiver_contact": true,
     "medications": [
       {
         "name": "Carvedilol 6.25 mg",
@@ -1379,8 +1411,8 @@
     ],
     "followup_day": 10,
     "_sim": {
-      "trajectory": "deteriorating",
-      "onset_day": 9,
+      "trajectory": "stable",
+      "onset_day": null,
       "urgent": false,
       "collects_prescription_day": 3,
       "books_appointment_day": 4,
@@ -1388,7 +1420,7 @@
     }
   },
   {
-    "patient_id": "P039",
+    "patient_id": "P040",
     "name": "Otto Pembroke",
     "condition": "heart_failure",
     "discharge_date": "2026-11-03",
@@ -1424,13 +1456,49 @@
     }
   },
   {
-    "patient_id": "P040",
+    "patient_id": "P041",
     "name": "Ana Dufresne",
-    "condition": "copd",
-    "discharge_date": "2026-11-02",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-03",
     "age_band": "65 to 74",
     "lives_alone": false,
     "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      }
+    ],
+    "followup_day": 7,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 2,
+      "books_appointment_day": 3,
+      "reply_rate": 0.9
+    }
+  },
+  {
+    "patient_id": "P042",
+    "name": "Joachim Brennan",
+    "condition": "copd",
+    "discharge_date": "2026-11-01",
+    "age_band": "65 to 74",
+    "lives_alone": false,
+    "caregiver_contact": false,
     "medications": [
       {
         "name": "Tiotropium inhaler",
@@ -1443,6 +1511,30 @@
       {
         "name": "Azithromycin 250 mg",
         "schedule": "once a day for five days"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "deteriorating",
+      "onset_day": 9,
+      "urgent": false,
+      "collects_prescription_day": 3,
+      "books_appointment_day": 9,
+      "reply_rate": 0.65
+    }
+  },
+  {
+    "patient_id": "P043",
+    "name": "Valeria Gallagher",
+    "condition": "copd",
+    "discharge_date": "2026-11-04",
+    "age_band": "55 to 64",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Tiotropium inhaler",
+        "schedule": "one puff each morning"
       },
       {
         "name": "Albuterol inhaler",
@@ -1450,6 +1542,14 @@
       },
       {
         "name": "Prednisone 40 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Doxycycline 100 mg",
+        "schedule": "twice a day for seven days"
+      },
+      {
+        "name": "Azithromycin 250 mg",
         "schedule": "once a day for five days"
       }
     ],
@@ -1458,146 +1558,38 @@
       "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": 6,
-      "reply_rate": 0.67
-    }
-  },
-  {
-    "patient_id": "P041",
-    "name": "Yvette Dufresne",
-    "condition": "copd",
-    "discharge_date": "2026-11-02",
-    "age_band": "75 to 84",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 3,
-      "reply_rate": 0.93
-    }
-  },
-  {
-    "patient_id": "P042",
-    "name": "Wendell Eriksen",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
-    "age_band": "85 plus",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 7,
-    "_sim": {
-      "trajectory": "deteriorating",
-      "onset_day": 5,
-      "urgent": false,
       "collects_prescription_day": 4,
-      "books_appointment_day": 8,
-      "reply_rate": 0.57
+      "books_appointment_day": null,
+      "reply_rate": 0.61
     }
   },
   {
-    "patient_id": "P043",
-    "name": "Delphine Oyelaran",
-    "condition": "copd",
+    "patient_id": "P044",
+    "name": "Boris Eriksen",
+    "condition": "type2_diabetes",
     "discharge_date": "2026-11-03",
     "age_band": "55 to 64",
     "lives_alone": false,
     "caregiver_contact": true,
     "medications": [
       {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
       },
       {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
       },
       {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 4,
-      "books_appointment_day": 8,
-      "reply_rate": 0.83
-    }
-  },
-  {
-    "patient_id": "P044",
-    "name": "Marcus Haddad",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-04",
-    "age_band": "55 to 64",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
       {
-        "name": "Furosemide 40 mg",
+        "name": "Sitagliptin 100 mg",
         "schedule": "once each morning"
       },
       {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Lisinopril 10 mg",
+        "name": "Empagliflozin 10 mg",
         "schedule": "once each morning"
       }
     ],
@@ -1607,30 +1599,38 @@
       "onset_day": null,
       "urgent": false,
       "collects_prescription_day": 2,
-      "books_appointment_day": null,
-      "reply_rate": 0.92
+      "books_appointment_day": 7,
+      "reply_rate": 0.69
     }
   },
   {
     "patient_id": "P045",
-    "name": "Tamsin Whitlock",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
+    "name": "Joachim Delgado",
+    "condition": "copd",
+    "discharge_date": "2026-11-02",
     "age_band": "85 plus",
     "lives_alone": false,
-    "caregiver_contact": true,
+    "caregiver_contact": false,
     "medications": [
       {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
+        "name": "Prednisone 40 mg",
+        "schedule": "once a day for five days"
       },
       {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
+        "name": "Azithromycin 250 mg",
+        "schedule": "once a day for five days"
       },
       {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      },
+      {
+        "name": "Doxycycline 100 mg",
+        "schedule": "twice a day for seven days"
+      },
+      {
+        "name": "Tiotropium inhaler",
+        "schedule": "one puff each morning"
       }
     ],
     "followup_day": 7,
@@ -1638,54 +1638,58 @@
       "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": 7,
-      "reply_rate": 0.67
+      "collects_prescription_day": 2,
+      "books_appointment_day": 4,
+      "reply_rate": 0.82
     }
   },
   {
     "patient_id": "P046",
-    "name": "Ingrid Kowalski",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-03",
-    "age_band": "75 to 84",
+    "name": "Darnell Bergstrom",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-01",
+    "age_band": "55 to 64",
     "lives_alone": false,
-    "caregiver_contact": true,
+    "caregiver_contact": false,
     "medications": [
       {
-        "name": "Spironolactone 25 mg",
+        "name": "Sitagliptin 100 mg",
         "schedule": "once each morning"
       },
       {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
       },
       {
-        "name": "Lisinopril 10 mg",
+        "name": "Empagliflozin 10 mg",
         "schedule": "once each morning"
       }
     ],
-    "followup_day": 14,
+    "followup_day": 10,
     "_sim": {
       "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 3,
-      "reply_rate": 0.73
+      "collects_prescription_day": null,
+      "books_appointment_day": 9,
+      "reply_rate": 0.58
     }
   },
   {
     "patient_id": "P047",
-    "name": "Salvatore Gallagher",
+    "name": "Boris Haddad",
     "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "75 to 84",
-    "lives_alone": true,
+    "discharge_date": "2026-11-01",
+    "age_band": "55 to 64",
+    "lives_alone": false,
     "caregiver_contact": false,
     "medications": [
       {
-        "name": "Spironolactone 25 mg",
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Furosemide 40 mg",
         "schedule": "once each morning"
       },
       {
@@ -1693,113 +1697,33 @@
         "schedule": "once a day"
       },
       {
-        "name": "Furosemide 40 mg",
+        "name": "Lisinopril 10 mg",
         "schedule": "once each morning"
       },
       {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
       }
     ],
-    "followup_day": 7,
+    "followup_day": 12,
     "_sim": {
       "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": 6,
-      "reply_rate": 0.57
+      "collects_prescription_day": 1,
+      "books_appointment_day": 5,
+      "reply_rate": 0.91
     }
   },
   {
     "patient_id": "P048",
-    "name": "Paloma Kowalski",
+    "name": "Stefan Fontaine",
     "condition": "copd",
-    "discharge_date": "2026-11-02",
+    "discharge_date": "2026-11-03",
     "age_band": "75 to 84",
     "lives_alone": false,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      },
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 8,
-      "reply_rate": 0.6
-    }
-  },
-  {
-    "patient_id": "P049",
-    "name": "Terrence Hollins",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "65 to 74",
-    "lives_alone": true,
     "caregiver_contact": true,
     "medications": [
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Potassium chloride 20 mEq",
-        "schedule": "once a day"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      }
-    ],
-    "followup_day": 14,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": null,
-      "reply_rate": 0.79
-    }
-  },
-  {
-    "patient_id": "P050",
-    "name": "Quentin Castellanos",
-    "condition": "copd",
-    "discharge_date": "2026-11-04",
-    "age_band": "75 to 84",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
       {
         "name": "Tiotropium inhaler",
         "schedule": "one puff each morning"
@@ -1809,104 +1733,68 @@
         "schedule": "as needed for breathlessness"
       },
       {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "silent",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 3,
-      "reply_rate": 0.8
-    }
-  },
-  {
-    "patient_id": "P051",
-    "name": "Quentin Dufresne",
-    "condition": "copd",
-    "discharge_date": "2026-11-03",
-    "age_band": "85 plus",
-    "lives_alone": false,
-    "caregiver_contact": false,
-    "medications": [
-      {
         "name": "Prednisone 40 mg",
         "schedule": "once a day for five days"
       },
       {
         "name": "Azithromycin 250 mg",
         "schedule": "once a day for five days"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
       }
     ],
-    "followup_day": 12,
+    "followup_day": 7,
     "_sim": {
       "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": 4,
-      "books_appointment_day": null,
-      "reply_rate": 0.83
+      "collects_prescription_day": 2,
+      "books_appointment_day": 9,
+      "reply_rate": 0.62
     }
   },
   {
-    "patient_id": "P052",
-    "name": "Clifford Brennan",
+    "patient_id": "P049",
+    "name": "Priya Castellanos",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-01",
+    "age_band": "75 to 84",
+    "lives_alone": true,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 3,
+      "books_appointment_day": null,
+      "reply_rate": 0.85
+    }
+  },
+  {
+    "patient_id": "P050",
+    "name": "Nkechi Kirkpatrick",
     "condition": "copd",
-    "discharge_date": "2026-11-02",
-    "age_band": "85 plus",
-    "lives_alone": false,
+    "discharge_date": "2026-11-01",
+    "age_band": "75 to 84",
+    "lives_alone": true,
     "caregiver_contact": true,
     "medications": [
       {
         "name": "Tiotropium inhaler",
         "schedule": "one puff each morning"
-      },
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": 9,
-      "reply_rate": 0.71
-    }
-  },
-  {
-    "patient_id": "P053",
-    "name": "Tamsin Jarvis",
-    "condition": "copd",
-    "discharge_date": "2026-11-03",
-    "age_band": "65 to 74",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
       },
       {
         "name": "Azithromycin 250 mg",
@@ -1922,50 +1810,14 @@
       "trajectory": "silent",
       "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": 6,
-      "reply_rate": 0.85
+      "collects_prescription_day": 2,
+      "books_appointment_day": 8,
+      "reply_rate": 0.64
     }
   },
   {
-    "patient_id": "P054",
-    "name": "Clifford Kowalski",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
-    "age_band": "85 plus",
-    "lives_alone": true,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Spironolactone 25 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": null,
-      "reply_rate": 0.73
-    }
-  },
-  {
-    "patient_id": "P055",
-    "name": "Yusuf Bergstrom",
+    "patient_id": "P051",
+    "name": "Terrence Ananthan",
     "condition": "heart_failure",
     "discharge_date": "2026-11-04",
     "age_band": "75 to 84",
@@ -1973,47 +1825,19 @@
     "caregiver_contact": true,
     "medications": [
       {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
-      },
-      {
-        "name": "Furosemide 40 mg",
-        "schedule": "once each morning"
-      },
-      {
         "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Lisinopril 10 mg",
         "schedule": "once each morning"
       },
       {
         "name": "Potassium chloride 20 mEq",
         "schedule": "once a day"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": null,
-      "reply_rate": 0.64
-    }
-  },
-  {
-    "patient_id": "P056",
-    "name": "Marcus Gallagher",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-02",
-    "age_band": "65 to 74",
-    "lives_alone": false,
-    "caregiver_contact": false,
-    "medications": [
-      {
-        "name": "Lisinopril 10 mg",
-        "schedule": "once each morning"
       },
       {
-        "name": "Spironolactone 25 mg",
+        "name": "Furosemide 40 mg",
         "schedule": "once each morning"
       },
       {
@@ -2023,146 +1847,42 @@
     ],
     "followup_day": 12,
     "_sim": {
-      "trajectory": "silent",
+      "trajectory": "stable",
       "onset_day": null,
       "urgent": false,
-      "collects_prescription_day": null,
-      "books_appointment_day": 7,
-      "reply_rate": 0.64
+      "collects_prescription_day": 2,
+      "books_appointment_day": null,
+      "reply_rate": 0.88
     }
   },
   {
-    "patient_id": "P057",
-    "name": "Nadia Iyengar",
-    "condition": "copd",
+    "patient_id": "P052",
+    "name": "Linus Kowalski",
+    "condition": "type2_diabetes",
     "discharge_date": "2026-11-04",
     "age_band": "55 to 64",
-    "lives_alone": true,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      },
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "deteriorating",
-      "onset_day": 11,
-      "urgent": false,
-      "collects_prescription_day": 1,
-      "books_appointment_day": 8,
-      "reply_rate": 0.92
-    }
-  },
-  {
-    "patient_id": "P058",
-    "name": "Rosa Okafor",
-    "condition": "copd",
-    "discharge_date": "2026-11-03",
-    "age_band": "55 to 64",
     "lives_alone": false,
     "caregiver_contact": true,
     "medications": [
       {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      }
-    ],
-    "followup_day": 12,
-    "_sim": {
-      "trajectory": "stable",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 4,
-      "books_appointment_day": 9,
-      "reply_rate": 0.6
-    }
-  },
-  {
-    "patient_id": "P059",
-    "name": "Tamsin Hollins",
-    "condition": "heart_failure",
-    "discharge_date": "2026-11-01",
-    "age_band": "75 to 84",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Spironolactone 25 mg",
+        "name": "Sitagliptin 100 mg",
         "schedule": "once each morning"
       },
       {
-        "name": "Carvedilol 6.25 mg",
-        "schedule": "twice a day with food"
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
       },
       {
-        "name": "Lisinopril 10 mg",
+        "name": "Empagliflozin 10 mg",
         "schedule": "once each morning"
-      }
-    ],
-    "followup_day": 10,
-    "_sim": {
-      "trajectory": "silent",
-      "onset_day": null,
-      "urgent": false,
-      "collects_prescription_day": 3,
-      "books_appointment_day": null,
-      "reply_rate": 0.83
-    }
-  },
-  {
-    "patient_id": "P060",
-    "name": "Marisol Pembroke",
-    "condition": "copd",
-    "discharge_date": "2026-11-03",
-    "age_band": "65 to 74",
-    "lives_alone": false,
-    "caregiver_contact": true,
-    "medications": [
-      {
-        "name": "Albuterol inhaler",
-        "schedule": "as needed for breathlessness"
       },
       {
-        "name": "Doxycycline 100 mg",
-        "schedule": "twice a day for seven days"
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
       },
       {
-        "name": "Tiotropium inhaler",
-        "schedule": "one puff each morning"
-      },
-      {
-        "name": "Prednisone 40 mg",
-        "schedule": "once a day for five days"
-      },
-      {
-        "name": "Azithromycin 250 mg",
-        "schedule": "once a day for five days"
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
       }
     ],
     "followup_day": 14,
@@ -2171,8 +1891,296 @@
       "onset_day": null,
       "urgent": false,
       "collects_prescription_day": 1,
+      "books_appointment_day": 2,
+      "reply_rate": 0.66
+    }
+  },
+  {
+    "patient_id": "P053",
+    "name": "Mei Oyelaran",
+    "condition": "copd",
+    "discharge_date": "2026-11-02",
+    "age_band": "75 to 84",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Tiotropium inhaler",
+        "schedule": "one puff each morning"
+      },
+      {
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      },
+      {
+        "name": "Prednisone 40 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Azithromycin 250 mg",
+        "schedule": "once a day for five days"
+      }
+    ],
+    "followup_day": 12,
+    "_sim": {
+      "trajectory": "silent",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": null,
       "books_appointment_day": 8,
-      "reply_rate": 0.91
+      "reply_rate": 0.87
+    }
+  },
+  {
+    "patient_id": "P054",
+    "name": "Tamsin Eriksen",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-04",
+    "age_band": "85 plus",
+    "lives_alone": false,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Spironolactone 25 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 12,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": null,
+      "books_appointment_day": 6,
+      "reply_rate": 0.69
+    }
+  },
+  {
+    "patient_id": "P055",
+    "name": "Joachim Bergstrom",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-01",
+    "age_band": "65 to 74",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 14,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 1,
+      "books_appointment_day": 3,
+      "reply_rate": 0.82
+    }
+  },
+  {
+    "patient_id": "P056",
+    "name": "Ivy Lindqvist",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-03",
+    "age_band": "85 plus",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "silent",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 2,
+      "books_appointment_day": null,
+      "reply_rate": 0.7
+    }
+  },
+  {
+    "patient_id": "P057",
+    "name": "Stefan Castellanos",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-01",
+    "age_band": "55 to 64",
+    "lives_alone": false,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
+      {
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      },
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 7,
+    "_sim": {
+      "trajectory": "deteriorating",
+      "onset_day": 5,
+      "urgent": true,
+      "collects_prescription_day": 2,
+      "books_appointment_day": 5,
+      "reply_rate": 0.76
+    }
+  },
+  {
+    "patient_id": "P058",
+    "name": "Clifford Hollins",
+    "condition": "copd",
+    "discharge_date": "2026-11-03",
+    "age_band": "65 to 74",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Tiotropium inhaler",
+        "schedule": "one puff each morning"
+      },
+      {
+        "name": "Prednisone 40 mg",
+        "schedule": "once a day for five days"
+      },
+      {
+        "name": "Doxycycline 100 mg",
+        "schedule": "twice a day for seven days"
+      },
+      {
+        "name": "Albuterol inhaler",
+        "schedule": "as needed for breathlessness"
+      }
+    ],
+    "followup_day": 14,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 1,
+      "books_appointment_day": 9,
+      "reply_rate": 0.68
+    }
+  },
+  {
+    "patient_id": "P059",
+    "name": "Wendell Oyelaran",
+    "condition": "type2_diabetes",
+    "discharge_date": "2026-11-03",
+    "age_band": "75 to 84",
+    "lives_alone": true,
+    "caregiver_contact": true,
+    "medications": [
+      {
+        "name": "Sitagliptin 100 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Metformin 500 mg",
+        "schedule": "twice a day with meals"
+      },
+      {
+        "name": "Gliclazide 40 mg",
+        "schedule": "once each morning with breakfast"
+      },
+      {
+        "name": "Empagliflozin 10 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Insulin glargine 10 units",
+        "schedule": "once at bedtime"
+      }
+    ],
+    "followup_day": 10,
+    "_sim": {
+      "trajectory": "silent",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 2,
+      "books_appointment_day": null,
+      "reply_rate": 0.92
+    }
+  },
+  {
+    "patient_id": "P060",
+    "name": "Hassan Mbeki",
+    "condition": "heart_failure",
+    "discharge_date": "2026-11-01",
+    "age_band": "55 to 64",
+    "lives_alone": false,
+    "caregiver_contact": false,
+    "medications": [
+      {
+        "name": "Furosemide 40 mg",
+        "schedule": "once each morning"
+      },
+      {
+        "name": "Potassium chloride 20 mEq",
+        "schedule": "once a day"
+      },
+      {
+        "name": "Carvedilol 6.25 mg",
+        "schedule": "twice a day with food"
+      },
+      {
+        "name": "Lisinopril 10 mg",
+        "schedule": "once each morning"
+      }
+    ],
+    "followup_day": 14,
+    "_sim": {
+      "trajectory": "stable",
+      "onset_day": null,
+      "urgent": false,
+      "collects_prescription_day": 4,
+      "books_appointment_day": null,
+      "reply_rate": 0.73
     }
   }
 ]

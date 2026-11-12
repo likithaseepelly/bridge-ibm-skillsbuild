@@ -51,6 +51,7 @@ a.btn,button{font:inherit;font-size:13px;padding:7px 14px;border-radius:6px;
 border:1px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer;
 text-decoration:none;display:inline-block}
 a.btn.ghost,button.ghost{background:#fff;color:var(--blue)}
+a.btn.active{background:var(--deep);border-color:var(--deep)}
 h2{font-size:15px;margin:22px 0 10px;color:var(--deep);
 text-transform:uppercase;letter-spacing:.6px}
 .banner{border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:14px}
@@ -62,15 +63,32 @@ td,th{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);
 vertical-align:top}
 th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase}
 .trail{font-size:13.5px}
-.trail .ev{padding:9px 0;border-bottom:1px dashed var(--line)}
+.trail .ev{padding:12px 0;border-bottom:1px dashed var(--line);
+min-height:44px;word-break:break-word;overflow-wrap:anywhere}
 .trail .ev:last-child{border-bottom:none}
 .who{font-size:11.5px;color:var(--muted);text-transform:uppercase;
-letter-spacing:.5px}
+letter-spacing:.5px;margin-bottom:4px;display:block}
 form.inline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 input[type=text]{font:inherit;padding:7px 10px;border:1px solid var(--line);
 border-radius:6px;min-width:220px;flex:1}
 .foot{color:var(--muted);font-size:12px;margin-top:26px;line-height:1.6}
-@media(max-width:640px){.wrap{padding:14px 10px 50px}}
+@media(max-width:640px){
+  .wrap{padding:14px 10px 50px}
+  .trail .ev{display:block;padding:12px 0;word-break:break-word;overflow-wrap:anywhere}
+}
+@media(max-width:360px){
+  body{font-size:14px}
+  .wrap{padding:10px 8px 40px}
+  .card{padding:12px 10px}
+  .name{font-size:15px}
+  .trail .ev{min-height:44px;padding:12px 0}
+  a.btn,button{min-height:44px;display:flex;align-items:center;
+  justify-content:center;padding:0 12px;font-size:13px;box-sizing:border-box}
+  input[type=text]{min-width:0;width:100%}
+  form.inline{flex-direction:column}
+  table{width:100%;table-layout:fixed}
+  td,th{word-break:break-word;overflow-wrap:anywhere;max-width:0}
+}
 """
 
 DISCLAIMER = ("Bridge ranks and raises. It does not diagnose, it does not give "
@@ -101,12 +119,35 @@ def _age(day: int, ev_day: int) -> str:
     return "%d days ago" % d
 
 
-def worklist_html() -> str:
+def worklist_html(filter_by: str = "") -> str:
     day = STORE.latest_cycle_day() or 0
     rows = STORE.ranking(day)
     cases = {c["patient_id"]: c for c in STORE.open_cases()}
     pending = STORE.pending_messages()
     degraded = any(r.get("degraded") for r in rows)
+
+    # --- apply filter ---
+    # "open_case": keep only patients who have an open case right now.
+    # "gone_quiet": keep only patients whose most recent ranking reason
+    #   contains the silence signal (no reply for N days) and who have no
+    #   reply on record, or whose open case trigger is extended_silence.
+    if filter_by == "open_case":
+        rows = [r for r in rows if r["patient_id"] in cases]
+    elif filter_by == "gone_quiet":
+        quiet_pids = set()
+        for c in STORE.open_cases():
+            if c["trigger"] == "extended_silence":
+                quiet_pids.add(c["patient_id"])
+        # Also include any ranked patient whose evidence includes a silence entry.
+        for r in rows:
+            if any(ev.startswith("silence:") for ev in r["evidence_ids"]):
+                quiet_pids.add(r["patient_id"])
+        rows = [r for r in rows if r["patient_id"] in quiet_pids]
+
+    def _filter_link(label: str, value: str) -> str:
+        cls = "btn active" if filter_by == value else "btn ghost"
+        href = "/?filter=%s" % value if filter_by != value else "/"
+        return '<a class="%s" href="%s">%s</a>' % (cls, href, esc(label))
 
     out = []
     out.append('<div class="bar">'
@@ -114,9 +155,12 @@ def worklist_html() -> str:
                '<span class="pill">Cohort <b>%d</b></span>'
                '<span class="pill">Open cases <b>%d</b></span>'
                '<span class="pill">Awaiting approval <b>%d</b></span>'
+               '%s%s'
                '<a class="btn ghost" href="/audit">Audit log</a>'
                '<a class="btn ghost" href="/approvals">Approvals</a>'
-               '</div>' % (day, len(STORE.all_patients()), len(cases), len(pending)))
+               '</div>' % (day, len(STORE.all_patients()), len(cases), len(pending),
+                           _filter_link("Open case", "open_case"),
+                           _filter_link("Gone quiet", "gone_quiet")))
 
     if degraded:
         out.append('<div class="banner amber">This list is degraded. One or more '
@@ -130,9 +174,17 @@ def worklist_html() -> str:
                    'at the top of the list.</div>'
                    % (len(urgent), "" if len(urgent) == 1 else "s"))
 
-    out.append("<h2>Call these first</h2>")
+    heading = "Call these first"
+    if filter_by == "open_case":
+        heading = "Patients with an open case"
+    elif filter_by == "gone_quiet":
+        heading = "Patients who have gone quiet"
+    out.append("<h2>%s</h2>" % esc(heading))
     if not rows:
-        out.append('<div class="card">Nothing ranked yet. Run a cycle first.</div>')
+        if filter_by:
+            out.append('<div class="card">No patients match this filter.</div>')
+        else:
+            out.append('<div class="card">Nothing ranked yet. Run a cycle first.</div>')
 
     for row in rows[:config.WORKLIST_SIZE]:
         rec = STORE.get_patient(row["patient_id"])
@@ -178,9 +230,10 @@ def worklist_html() -> str:
                esc(row["reason"]), "".join(tags), esc(row["patient_id"]), day,
                esc(row["patient_id"])))
 
-    if len(rows) > config.WORKLIST_SIZE:
+    all_rows_count = len(rows)
+    if all_rows_count > config.WORKLIST_SIZE:
         out.append("<h2>Below the line (%d more ranked)</h2>" % (
-            len(rows) - config.WORKLIST_SIZE))
+            all_rows_count - config.WORKLIST_SIZE))
         out.append('<div class="card"><table><tr><th>#</th><th>Patient</th>'
                    '<th>Reason</th><th>Conf</th></tr>')
         for row in rows[config.WORKLIST_SIZE:config.WORKLIST_SIZE + 12]:
@@ -320,7 +373,8 @@ class Handler(BaseHTTPRequestHandler):
         parsed = urllib.parse.urlparse(self.path)
         qs = urllib.parse.parse_qs(parsed.query)
         if parsed.path == "/":
-            self._send(page("Bridge worklist", worklist_html()))
+            filter_by = qs.get("filter", [""])[0]
+            self._send(page("Bridge worklist", worklist_html(filter_by)))
         elif parsed.path == "/patient":
             self._send(page("Patient", patient_html(qs.get("id", [""])[0])))
         elif parsed.path == "/approvals":

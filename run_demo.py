@@ -1,8 +1,9 @@
 """One command demo.
 
-    python3 run_demo.py            build cohort, run 12 cycles, start the worklist
-    python3 run_demo.py --days 20  run more cycles first
-    python3 run_demo.py --no-serve just run the cycles and print the summary
+    py run_demo.py                  build cohort, run 12 cycles, start the worklist
+    py run_demo.py --days 20        run more cycles first
+    py run_demo.py --no-serve       just run the cycles and print the summary
+    py run_demo.py --dry-run DAY    print what cycle DAY would do, write nothing
 """
 
 import argparse
@@ -19,7 +20,26 @@ def main() -> None:
     ap.add_argument("--no-serve", action="store_true")
     ap.add_argument("--keep", action="store_true",
                     help="keep the existing database instead of rebuilding")
+    ap.add_argument("--dry-run", type=int, metavar="DAY", dest="dry_run",
+                    help="print the plan for DAY without writing to the database")
     args = ap.parse_args()
+
+    # --dry-run: load (or build) state, print the plan, exit — no DB writes.
+    if args.dry_run is not None:
+        if not config.DB_PATH.exists():
+            # No existing database; build one so there is state to inspect.
+            if not args.keep:
+                info = synth.write_cohort()
+                print("Cohort: %d synthetic patients, %d with scripted deterioration"
+                      % (info["count"], info["seeded"]))
+            store = Store()
+            orchestrator.bootstrap(store)
+            orchestrator.simulate(store, days=args.dry_run - 1)
+        else:
+            store = Store()
+        orchestrator.build_cycle_plan(store, args.dry_run)
+        store.close()
+        return
 
     if not args.keep and config.DB_PATH.exists():
         os.remove(config.DB_PATH)

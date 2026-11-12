@@ -15,25 +15,25 @@
     },
     "P024": {
       "trajectory": "deteriorating",
-      "first_signal_day": 9,
+      "first_signal_day": 8,
       "becomes_urgent": false,
       "urgent_day": null
     },
     "P025": {
       "trajectory": "deteriorating",
-      "first_signal_day": 5,
+      "first_signal_day": 9,
       "becomes_urgent": true,
-      "urgent_day": 8
+      "urgent_day": 12
     },
     "P033": {
       "trajectory": "deteriorating",
-      "first_signal_day": 3,
+      "first_signal_day": 8,
       "becomes_urgent": false,
       "urgent_day": null
     },
     "P036": {
       "trajectory": "deteriorating",
-      "first_signal_day": 6,
+      "first_signal_day": 4,
       "becomes_urgent": false,
       "urgent_day": null
     },
@@ -45,15 +45,15 @@
     },
     "P042": {
       "trajectory": "deteriorating",
-      "first_signal_day": 5,
+      "first_signal_day": 9,
       "becomes_urgent": false,
       "urgent_day": null
     },
     "P057": {
       "trajectory": "deteriorating",
-      "first_signal_day": 11,
-      "becomes_urgent": false,
-      "urgent_day": null
+      "first_signal_day": 5,
+      "becomes_urgent": true,
+      "urgent_day": 8
     }
   }
 }

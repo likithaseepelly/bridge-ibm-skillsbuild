@@ -33,7 +33,7 @@ WORKLIST_SIZE = 5             # how many names the nurse sees each morning
 MAX_CLARIFYING_QUESTIONS = 1  # then escalate, never guess twice
 SILENCE_LIMIT_DAYS = 3        # high acuity plans escalate sooner, see plan_intake
 
-CONDITIONS = ("heart_failure", "copd")
+CONDITIONS = ("heart_failure", "copd", "type2_diabetes")
 
 # Optional IBM watsonx.ai inference. If these are not set the system runs on its
 # deterministic rule engine, which is what makes the demo reproducible.
