@@ -46,14 +46,46 @@ days, one agent failure injected on day twelve.
 | Measure | Result |
 | --- | --- |
 | Detection rate | 89 percent, 8 of 9 seeded events reached the top five |
-| Median cycles to detection | 1 |
-| Worst case cycles to detection | 4 |
-| Unexplained top five slots | 2 percent of 144 |
+| Median cycles to detection | 2.5 |
+| Worst case cycles to detection | 5 |
+| Top five slots, seeded deterioration | 83 of 145 |
+| Top five slots, other real reason to call | 57 of 145 |
+| Unexplained top five slots | 3 percent, 5 of 145 |
 | Deferred urgent replies | 0 |
-| Ranked entries with no reason or no evidence | 0 of 1111 |
+| Ranked entries with no reason or no evidence | 0 of 1075 |
 | Injected failures surfaced rather than skipped | 2 of 2 |
 
-Reproduce with `python3 eval/run_eval.py`.
+Reproduce with `python3 eval/run_eval.py`. These are rule engine numbers, with
+no credentials of any kind, so they are reproducible by anyone who clones this
+repository. See the IBM technology section below for how to switch Granite on.
+
+### What changes with IBM watsonx.ai switched on
+
+Same cohort, same seed, same thirty days. The only difference is that every non
+urgent reply also goes to Granite for a second opinion.
+
+| Measure | Rule engine | Granite (`ibm/granite-4-h-small`) |
+| --- | --- | --- |
+| Detection rate | 89 percent, 8 of 9 | 100 percent, 9 of 9 |
+| Median cycles to detection | 2.5 | 2 |
+| Worst case cycles to detection | 5 | 5 |
+| Top five slots on real deterioration | 83 of 145 | 90 of 145 |
+| Unexplained top five slots | 5 | 5 |
+| Deferred urgent replies | 0 | 0 |
+| watsonx.ai calls | none | 547 attempted, 547 answered, 0 fell back |
+
+The seeded event the rule engine missed was a COPD patient who wrote *More out
+of breath getting dressed than I was last week*. No term in the rising concern
+list matched it, so the rules scored it mild. Granite read the comparison with
+last week and scored it rising, three days before the rules reached the same
+conclusion from a later and more explicit reply.
+
+Note what did not change. Unexplained top five slots stayed at 5 and deferred
+urgent replies stayed at 0. Granite caught more without crowding the list,
+because it is only ever allowed to raise a concern level, never lower one.
+
+Both runs are committed: `out/eval_results_rules.json` and
+`out/eval_results_granite.json`.
 
 ## Run it
 
@@ -108,14 +140,32 @@ docs/                statements, demo script, screens
 - **IBM Bob** is the development environment for the build. See
   `docs/technology_statement.md` and the screenshots in `bob_sessions/`.
 - **IBM watsonx.ai** provides inference for reply interpretation when
-  credentials are present. Set `WATSONX_API_KEY`, `WATSONX_URL` and
-  `WATSONX_PROJECT_ID` and the interpretation agent asks Granite for a second
-  opinion. Granite may raise a concern level, never lower one. Without
-  credentials the system runs on its deterministic rule engine, which is what
-  makes the evaluation reproducible.
-- **IBM watsonx Orchestrate** is the intended host for the agents and the daily
-  cycle. The orchestrator in this repository mirrors that cycle so the
-  prototype runs end to end without a cloud dependency.
+  credentials are present. The interpretation agent asks Granite for a second
+  opinion on each reply. Granite may raise a concern level, never lower one,
+  and is never asked to resolve an ambiguous reply. Without credentials the
+  system runs on its deterministic rule engine, which is what makes the
+  evaluation above reproducible by anyone.
+
+  To switch it on, set three environment variables and check them:
+
+  ```bash
+  export WATSONX_API_KEY=...          # cloud.ibm.com, Manage, Access (IAM)
+  export WATSONX_URL=https://us-south.ml.cloud.ibm.com
+  export WATSONX_PROJECT_ID=...       # watsonx project, Manage, General
+  python3 scripts/check_watsonx.py
+  ```
+
+  `bridge/llm.py` swallows errors on purpose, so a failed call degrades to the
+  rule engine instead of stopping a cycle. That makes it easy to believe
+  Granite ran when it never did, so the check script fails loudly instead, and
+  every evaluation prints how many calls were attempted, answered, and fell
+  back. Model availability changes: `ibm/granite-3-8b-instruct` was retired
+  from us-south, and the check script lists what your region currently serves.
+
+- **IBM watsonx Orchestrate** was not used. The seven agents and the daily
+  cycle are defined and run in `bridge/orchestrator.py`, so the prototype runs
+  end to end with no cloud dependency. Orchestrate is where this cycle would be
+  hosted in a real deployment.
 
 ## Safety rules, enforced in code
 

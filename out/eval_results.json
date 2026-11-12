@@ -1,20 +1,30 @@
 {
+  "interpretation_engines_observed": [
+    "granite+rules",
+    "rules"
+  ],
+  "watsonx_configured": true,
+  "watsonx_model_id": "ibm/granite-4-h-small",
+  "watsonx_calls": {
+    "attempted": 547,
+    "succeeded": 547,
+    "failed": 0,
+    "last_error": null
+  },
   "cohort_size": 60,
   "seeded_events": 9,
   "days_simulated": 30,
-  "detection_rate": 0.889,
-  "detected": 8,
-  "missed": [
-    "P042"
-  ],
-  "median_cycles_to_detection": 2.5,
+  "detection_rate": 1.0,
+  "detected": 9,
+  "missed": [],
+  "median_cycles_to_detection": 2,
   "max_cycles_to_detection": 5,
   "top_five_slots": 145,
-  "seeded_slots": 83,
-  "other_adverse_slots": 57,
+  "seeded_slots": 90,
+  "other_adverse_slots": 50,
   "unexplained_slots": 5,
-  "noise_slots": 62,
-  "noise_rate": 0.428,
+  "noise_slots": 55,
+  "noise_rate": 0.379,
   "unexplained_rate": 0.034,
   "deferred_urgent_replies": 0,
   "deferred_detail": [],
@@ -22,5 +32,6 @@
   "entries_without_reason": 0,
   "entries_without_evidence": 0,
   "injected_failures_surfaced": 2,
-  "total_cases_opened": 100
+  "total_cases_opened": 103,
+  "run_tag": "granite"
 }

@@ -31,6 +31,25 @@ not public.
 - [ ] `bob_sessions/` contains screenshots from every member
 - [ ] `docs/` contains both statements and the demo script
 
+## Step 1b, IBM watsonx.ai, verified 11 November 2026
+
+Live and answering on `ibm/granite-4-h-small` in Dallas. 547 calls, 547
+answered, nothing fell back. Detection went from 8 of 9 to 9 of 9 against the
+rule engine, with false positives unchanged. Both result files are committed.
+
+If you need to rerun it, set the three variables and check before you run:
+
+```
+$env:WATSONX_URL        = "https://us-south.ml.cloud.ibm.com"
+$env:WATSONX_PROJECT_ID = "b0a712db-5e49-4dd9-ab2e-1e67051efc06"
+$env:WATSONX_API_KEY    = [System.Net.NetworkCredential]::new("", (Read-Host "Paste key" -AsSecureString)).Password
+py scripts\check_watsonx.py
+```
+
+The project id is not a secret. The API key is. Never paste it into a chat, a
+screenshot, a commit or this file. If one is ever exposed, delete it at
+cloud.ibm.com under Manage, Access (IAM), API keys and make a new one.
+
 ## Step 2, the Bob work
 
 Follow `docs/team_task_sheet.md`. Each member, one hour, own account.
@@ -67,9 +86,14 @@ Follow `docs/demo_video_script.md`.
 
 ## Step 5, the two statements
 
-- [ ] `docs/problem_and_solution_statement.md`, paste as is, under 500 words
-- [ ] `docs/technology_statement.md`, **fill every bracket first** with what
-      actually happened in Bob, then paste
+Both are finished. No brackets left, every number checked against a run, and
+both are under the 500 word limit with margin. Paste them as they are.
+
+- [ ] `docs/problem_and_solution_statement.md`, 490 words
+- [ ] `docs/technology_statement.md`, 487 words
+
+Do not paste the lines above the horizontal rule in either file. Those are
+notes to you, not part of the statement.
 
 ## Step 6, submit
 

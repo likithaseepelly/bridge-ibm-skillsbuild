@@ -17,7 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from bridge import config, orchestrator, synth  # noqa: E402
+from bridge import config, llm, orchestrator, synth  # noqa: E402
 from bridge.store import Store  # noqa: E402
 
 DAYS = 30
@@ -30,8 +30,9 @@ def build_store(fresh: bool = True) -> Store:
     return Store(DB)
 
 
-def run(days: int = DAYS, fail_on_day: int = 12) -> dict:
-    synth.write_cohort()
+def run(days: int = DAYS, fail_on_day: int = 12, cohort_size: int = None,
+        seeded: int = None) -> dict:
+    synth.write_cohort(size=cohort_size, seeded=seeded)
     store = build_store()
     orchestrator.bootstrap(store)
     orchestrator.simulate(store, days=days, fail_on_day=fail_on_day)
@@ -102,7 +103,19 @@ def run(days: int = DAYS, fail_on_day: int = 12) -> dict:
     failure_cases = [dict(c) for c in store.open_cases()
                      if c["trigger"] == "system_failure"]
 
+    # Which brain actually read the replies. Recorded so a run can never be
+    # mistaken for a watsonx run when it quietly fell back to the rules.
+    engines = set()
+    for record in store.all_patients():
+        for interp in store.interpretations_for(record["patient_id"]):
+            engines.add(interp.get("engine", "rules"))
+
     results = {
+        "interpretation_engines_observed": sorted(engines),
+        "watsonx_configured": config.watsonx_configured(),
+        "watsonx_model_id": (config.WATSONX_MODEL_ID
+                             if config.watsonx_configured() else None),
+        "watsonx_calls": dict(llm.CALLS),
         "cohort_size": len(store.all_patients()),
         "seeded_events": len(truth),
         "days_simulated": days,
@@ -128,17 +141,41 @@ def run(days: int = DAYS, fail_on_day: int = 12) -> dict:
         "total_cases_opened": len(store.open_cases()),
     }
 
-    out_path = config.OUT_DIR / "eval_results.json"
-    out_path.write_text(json.dumps(results, indent=2))
+    tag = "granite" if "granite+rules" in results[
+        "interpretation_engines_observed"] else "rules"
+    results["run_tag"] = tag
+    (config.OUT_DIR / "eval_results.json").write_text(
+        json.dumps(results, indent=2))
+    (config.OUT_DIR / ("eval_results_%s.json" % tag)).write_text(
+        json.dumps(results, indent=2))
     store.close()
     return results
 
 
 def main() -> int:
-    r = run()
+    import argparse
+    ap = argparse.ArgumentParser(description="Bridge evaluation harness")
+    ap.add_argument("--days", type=int, default=DAYS)
+    ap.add_argument("--cohort", type=int, default=None,
+                    help="cohort size, default %d" % config.COHORT_SIZE)
+    ap.add_argument("--seeded", type=int, default=None,
+                    help="scripted deterioration events, default %d"
+                         % config.SEEDED_DETERIORATION)
+    args = ap.parse_args()
+
+    if config.watsonx_configured():
+        print("watsonx.ai is configured. Every reply will be sent to %s for a"
+              % config.WATSONX_MODEL_ID)
+        print("second opinion, so this run will be slower than the rule engine.")
+    else:
+        print("watsonx.ai is not configured. Running on the rule engine.")
+
+    r = run(days=args.days, cohort_size=args.cohort, seeded=args.seeded)
     print("")
     print("Bridge evaluation, %d synthetic patients, %d simulated days"
           % (r["cohort_size"], r["days_simulated"]))
+    print("Interpretation engine          %s"
+          % ", ".join(r["interpretation_engines_observed"]))
     print("-" * 62)
     print("Detection rate                  %.0f%% (%d of %d seeded events)"
           % (r["detection_rate"] * 100, r["detected"], r["seeded_events"]))
@@ -159,7 +196,17 @@ def main() -> int:
     print("Injected failures surfaced      %d   (raised, not skipped)"
           % r["injected_failures_surfaced"])
     print("-" * 62)
+    calls = r.get("watsonx_calls") or {}
+    if calls.get("attempted"):
+        print("watsonx.ai calls                %d attempted, %d answered, "
+              "%d fell back to rules"
+              % (calls["attempted"], calls["succeeded"], calls["failed"]))
+        if calls.get("last_error"):
+            print("  last error                    %s" % calls["last_error"])
+    print("Run tag                         %s" % r["run_tag"])
     print("Written to %s" % (config.OUT_DIR / "eval_results.json"))
+    print("     and to %s"
+          % (config.OUT_DIR / ("eval_results_%s.json" % r["run_tag"])))
     return 0 if r["deferred_urgent_replies"] == 0 else 1
 
 

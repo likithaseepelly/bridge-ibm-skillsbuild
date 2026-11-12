@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 out/*.db
 .DS_Store
+.env
+.env.*
+*.key

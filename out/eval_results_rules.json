@@ -1,0 +1,38 @@
+{
+  "interpretation_engines_observed": [
+    "rules"
+  ],
+  "watsonx_configured": false,
+  "watsonx_model_id": null,
+  "watsonx_calls": {
+    "attempted": 0,
+    "succeeded": 0,
+    "failed": 0,
+    "last_error": null
+  },
+  "cohort_size": 60,
+  "seeded_events": 9,
+  "days_simulated": 30,
+  "detection_rate": 0.889,
+  "detected": 8,
+  "missed": [
+    "P042"
+  ],
+  "median_cycles_to_detection": 2.5,
+  "max_cycles_to_detection": 5,
+  "top_five_slots": 145,
+  "seeded_slots": 83,
+  "other_adverse_slots": 57,
+  "unexplained_slots": 5,
+  "noise_slots": 62,
+  "noise_rate": 0.428,
+  "unexplained_rate": 0.034,
+  "deferred_urgent_replies": 0,
+  "deferred_detail": [],
+  "ranked_entries_checked": 1075,
+  "entries_without_reason": 0,
+  "entries_without_evidence": 0,
+  "injected_failures_surfaced": 2,
+  "total_cases_opened": 100,
+  "run_tag": "rules"
+}

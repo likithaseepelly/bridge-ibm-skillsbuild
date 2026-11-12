@@ -2,60 +2,60 @@
 
 Paste into the Submissions field on the My Team page. Under 500 words.
 
-> Everything below is real and is backed by the six task session screenshots
-> and the task log in `bob_sessions/`. Two brackets remain, on watsonx. Fill or
-> delete them before submitting.
+> Every figure below is reproducible. Bob evidence is in `bob_sessions/`. The
+> two evaluation runs are in `out/eval_results_rules.json` and
+> `out/eval_results_granite.json`.
 
 ---
 
-**IBM Bob.** Bob was the development environment for this build. Each component
-went through Bob as its own task, so every session summary maps onto one part
-of the system. Six tasks were run on the provisioned `ibm-skillsbuild-ell`
-instance, consuming about 5.5 of our 40 shared Bobcoins. Task ids, prompts and
-outcomes are recorded in `bob_sessions/task_log.md`.
+**IBM Bob.** Bob was our development environment. Each component went through
+Bob as its own task, so every session summary maps onto one part
+of the system. Six tasks ran on the provisioned `ibm-skillsbuild-ell` instance,
+using about 5.5 of our 40 shared Bobcoins. Task ids, prompts and outcomes are
+in `bob_sessions/task_log.md`.
 
-Bob was not used to generate the system. It was used to attack it. The clearest
-example is the interpretation agent, which decides what a patient reply means.
-We asked Bob to invent harder reply phrasings and then fix whatever broke. It
-found four defects we had missed: urgent terms matched only exact spellings, so
-"cant breath" and "not making any sence" were read as non urgent; the phrase
-"slept sitting up" was mis-scored because only the present tense was listed,
-which would have under-ranked a deteriorating heart failure patient; hedged
-replies such as "she seems alright i think" were read as reassurance rather
-than ambiguity; and the ambiguity word limit was one word too tight.
+Bob was not used to generate the system. It was used to attack it. We asked it
+to invent harder patient replies and fix whatever broke. It found four defects we
+had missed, including urgent terms matched only on exact spelling, so "cant
+breath" read as non urgent, and hedges like "she seems alright i think" read as
+reassurance, not ambiguity.
 
-The most useful task was one we did not plan. After Bob added type 2 diabetes
-as a third condition, our evaluation harness showed median cycles to detection
-rising from 1 to 4 while the detection rate held at 89 percent. The cause was a
-cross-component gap: the rising-concern term list still only covered heart
-failure and COPD, so diabetes decline replies like "blood sugar readings have
-been very high the last two days" scored mild instead of rising, and four of
-nine seeded deterioration patients were being under-ranked. Bob extended the
-term list from the condition's own guidance file and added tests pinning every
-diabetes decline phrase. Median detection came back to 2.5 cycles and genuine
-deterioration rose from 57 to 83 of the top-five slots.
+The most useful task was unplanned. After Bob added type 2 diabetes
+as a third condition, our harness showed median cycles to detection rising from
+1 to 4 while the detection rate held at 89 percent and hid it. The rising
+concern term list still covered only heart failure and COPD, so diabetes
+decline replies scored mild instead of rising and four of nine seeded patients
+were under-ranked. Bob extended the list from that condition's guidance file
+and added tests pinning every diabetes decline phrase. Median detection
+returned to 2.5 cycles and genuine deterioration rose from 57 to 83 of the top
+five slots. Across six tasks the suite grew from 23 tests to 56, all passing.
 
-Across the six tasks the suite grew from 23 tests to 56, all passing, with zero
-deferred urgent replies throughout. Bob also ran an explicit check confirming no
-generated record contains personal information.
+**IBM watsonx.ai.** The interpretation agent sends every non-urgent reply to
+Granite for a second opinion, in `bridge/llm.py`. The constraint is enforced in
+code: Granite may raise a concern level, never lower one, and never resolves an
+ambiguous reply.
 
-**IBM watsonx.ai.** The interpretation agent calls watsonx.ai for a Granite
-second opinion on each reply. The integration is in `bridge/llm.py` and
-activates when `WATSONX_API_KEY`, `WATSONX_URL` and `WATSONX_PROJECT_ID` are
-set. The constraint is enforced in code: Granite may raise a concern level,
-never lower one, and is never asked to resolve ambiguity. Without credentials
-the system falls back to its deterministic rule engine, which is what makes our
-published numbers reproducible by anyone who clones the repository. [State
-whether the demo ran with watsonx credentials or on the rule engine.]
+We ran the full thirty day evaluation both ways. On `ibm/granite-4-h-small`,
+547 calls were made and 547 answered, none falling back. Granite raised
+detection from 8 of 9 seeded events to 9 of 9, cut median detection from 2.5
+cycles to 2, and moved real deterioration from 83 to 90 of the 145 top five
+slots, with false positives unchanged at 5. The patient the rules missed had
+written "More out of breath getting dressed than I was last week." No listed
+phrase matched, so the rule engine scored it mild. Granite read the comparison
+and scored it rising, three days earlier.
 
-**IBM watsonx Orchestrate.** [State what the team did there: which agents were
-defined, or that the instance was provisioned and the cycle modelled locally in
-`bridge/orchestrator.py` without deploying.]
+Our published headline numbers are the rule engine run, which reproduces for
+anyone who clones the repository.
 
-**Everything else.** Python 3 standard library only, SQLite for state and an
-append-only audit log, a TF-IDF passage index for retrieval grounding, and a
-standard library HTTP server for the nurse worklist. No third party packages.
+**IBM watsonx Orchestrate.** Not used. The seven agents and the daily cycle are
+defined and run in `bridge/orchestrator.py`, keeping the prototype free of a
+cloud dependency. Orchestrate is where this cycle would be hosted in
+production.
 
-**Data.** Synthetic throughout. No personal information, no client data, no
-real patient record. Ground truth lives in `eval/ground_truth.json` and is never
-read by any agent.
+**Everything else.** Python 3 standard library only: SQLite for state and an
+append-only audit log, a TF-IDF index for retrieval grounding, and a standard
+library HTTP server for the worklist.
+
+**Data.** Synthetic throughout. No personal information, no real patient
+record. Ground truth lives in `eval/ground_truth.json` and is never read by an
+agent.

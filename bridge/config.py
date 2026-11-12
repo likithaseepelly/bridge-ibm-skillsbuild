@@ -40,7 +40,10 @@ CONDITIONS = ("heart_failure", "copd", "type2_diabetes")
 WATSONX_API_KEY = os.environ.get("WATSONX_API_KEY", "")
 WATSONX_URL = os.environ.get("WATSONX_URL", "")
 WATSONX_PROJECT_ID = os.environ.get("WATSONX_PROJECT_ID", "")
-WATSONX_MODEL_ID = os.environ.get("WATSONX_MODEL_ID", "ibm/granite-3-8b-instruct")
+# granite-3-8b-instruct was retired from us-south. Verified working on
+# 11 November 2026: ibm/granite-4-h-small. Override with the env var if
+# your region serves something else; scripts/check_watsonx.py lists them.
+WATSONX_MODEL_ID = os.environ.get("WATSONX_MODEL_ID", "ibm/granite-4-h-small")
 
 
 def watsonx_configured() -> bool:

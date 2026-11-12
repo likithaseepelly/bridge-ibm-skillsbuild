@@ -16,6 +16,16 @@ from . import config
 
 _token_cache = {"token": None}
 
+# Call accounting. bridge/llm.py swallows errors on purpose so a failed call
+# degrades to the rule engine instead of stopping a cycle. That is right at run
+# time and useless afterwards, when you need to know whether watsonx answered
+# at all. These counters are the record.
+CALLS = {"attempted": 0, "succeeded": 0, "failed": 0, "last_error": None}
+
+
+def reset_calls() -> None:
+    CALLS.update(attempted=0, succeeded=0, failed=0, last_error=None)
+
 
 def _iam_token() -> Optional[str]:
     if _token_cache["token"]:
@@ -41,8 +51,11 @@ def generate(prompt: str, max_tokens: int = 240) -> Optional[str]:
     """Return model text, or None when watsonx is not configured or fails."""
     if not config.watsonx_configured():
         return None
+    CALLS["attempted"] += 1
     token = _iam_token()
     if not token:
+        CALLS["failed"] += 1
+        CALLS["last_error"] = "could not exchange the API key for an IAM token"
         return None
     url = config.WATSONX_URL.rstrip("/") + \
         "/ml/v1/text/generation?version=2024-05-01"
@@ -63,8 +76,17 @@ def generate(prompt: str, max_tokens: int = 240) -> Optional[str]:
     try:
         with urllib.request.urlopen(req, timeout=40) as resp:
             data = json.loads(resp.read())
-        return data["results"][0]["generated_text"].strip()
-    except Exception:
+        text = data["results"][0]["generated_text"].strip()
+        CALLS["succeeded"] += 1
+        return text
+    except urllib.error.HTTPError as exc:
+        CALLS["failed"] += 1
+        CALLS["last_error"] = "HTTP %s %s" % (
+            exc.code, exc.read().decode(errors="replace")[:200])
+        return None
+    except Exception as exc:  # noqa: BLE001
+        CALLS["failed"] += 1
+        CALLS["last_error"] = "%s: %s" % (type(exc).__name__, exc)
         return None
 
 
